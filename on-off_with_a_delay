@@ -1,0 +1,34 @@
+int x=1;
+String temp;
+
+const int buttonPin = 3;     
+const int ledPin = 13;
+int buttonState = 0; 
+    
+void setup() 
+{
+    Serial.begin(57600);   
+    pinMode(ledPin, OUTPUT);
+    pinMode(buttonPin, INPUT);  
+}
+void loop() 
+{
+    buttonState = digitalRead(buttonPin);
+    
+    if(buttonState == HIGH)
+    {
+        x++;
+        Serial.println(x);
+        if(x%2==0)
+        {
+          digitalWrite(ledPin, LOW); 
+        }
+        else
+        {
+          digitalWrite(ledPin, HIGH); 
+        }
+        delay(1000);
+
+    }  
+    
+} 
